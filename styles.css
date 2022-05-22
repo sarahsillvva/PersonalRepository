@@ -1,18 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
 
-body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Koulen', cursive;
-  color: white;
-}
-
-/*HEADER*/
-
-.header-wrapper {
-  height: 100vh;
-  width: 100%;
-  background-image: radial-gradient(
+:root {
+  --gradient-color: radial-gradient(
     circle at 98.06% 27.59%,
     #96b4a7 0,
     #87aea2 10%,
@@ -26,6 +15,24 @@ body {
     #006c91 90%,
     #006493 100%
   );
+  --primary-color: #00858f;
+  --paragraph: rgb(109, 109, 109);
+  --second-color: rgb(255, 255, 255);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Koulen', cursive;
+  color: var(--second-color);
+}
+
+/*HEADER*/
+
+.header-wrapper {
+  height: 100vh;
+  width: 100%;
+  background-image: var(--gradient-color);
   background-size: 400% 400%;
   display: flex;
   align-items: center;
@@ -53,10 +60,10 @@ h2 {
 
 .social-media a {
   text-decoration: none;
-  color: white;
+  color: var(--second-color);
   font-size: 24px;
   padding: 1rem 4rem;
-  border: 1px solid white;
+  border: 1px solid var(--second-color);
   min-width: 4rem;
   display: flex;
   justify-content: center;
@@ -65,8 +72,8 @@ h2 {
 }
 
 a:hover {
-  color: #00858f;
-  background-color: white;
+  color: var(--primary-color);
+  background-color: var(--second-color);
 }
 
 @keyframes backgroundTransition {
@@ -104,8 +111,8 @@ a:hover {
 
 .checkbox .trace {
   width: 50px;
-  height: 2px;
-  background-color: white;
+  height: 4px;
+  background-color: var(--second-color);
   position: absolute;
   border-radius: 4px;
   transition: 0.5s ease-in-out;
@@ -135,17 +142,17 @@ a:hover {
   position: absolute;
   top: 28px;
   right: 30px;
-  background: transparent;
-  height: 40px;
-  width: 40px;
+  background: var(--second-color);
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 0px white;
+  box-shadow: 0px 0px 200px 0px var(--second-color);
   z-index: -1;
   transition: 500ms ease-in-out 0s;
 }
 
 .menu-items {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -156,7 +163,7 @@ a:hover {
   z-index: 2;
   opacity: 0;
   visibility: hidden;
-  transition: 500ms ease-in-out 0s;
+  transition: 505ms ease-in-out 0s;
 }
 
 .menu-items ul {
@@ -165,7 +172,7 @@ a:hover {
 
 .menu-items ul li a {
   margin: 10px 0;
-  color: #00858f;
+  color: var(--primary-color);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 4px;
@@ -176,7 +183,7 @@ a:hover {
 
 #toggle:checked + .checkbox .trace:nth-child(1) {
   transform: rotate(45deg);
-  background-color: #00858f;
+  background-color: var(--primary-color);
   top: 47px;
 }
 
@@ -189,22 +196,23 @@ a:hover {
 
 #toggle:checked + .checkbox .trace:nth-child(3) {
   transform: rotate(-45deg);
-  background-color: #00858f;
+  background-color: var(--primary-color);
   top: 48px;
 }
 
 #toggle:checked + .checkbox {
-  background-color: white;
+  background-color: var(--second-color);
 }
 
 #toggle:checked ~ .menu {
-  box-shadow: 0px 0px 0px 100vmax white;
+  box-shadow: 0px 30rem 100px 90rem var(--second-color);
   z-index: 1;
 }
 
 #toggle:checked ~ .menu-items {
   visibility: visible;
   opacity: 1;
+  overflow: hidden;
 }
 
 /*HOME CARDS*/
@@ -219,6 +227,11 @@ a:hover {
   margin: 3rem 0;
 }
 
+.container a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
 .card-container {
   display: flex;
   align-items: center;
@@ -230,7 +243,7 @@ a:hover {
   height: 300px;
   width: 400px;
   margin: 3rem 0;
-  background-image: url('https://www.slideteam.net/wp/wp-content/uploads/2021/01/Graidient-4-690x518.png');
+  background-image: var(--gradient-color);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -238,7 +251,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   filter: grayscale(0.5);
-  color: white;
+  color: var(--second-color);
   cursor: pointer;
   transition: 0.3s;
   border-radius: 2rem;
@@ -247,8 +260,9 @@ a:hover {
 .card-text {
   width: 40%;
   font-family: sans-serif;
+  font-size: 18px;
   letter-spacing: 1px;
-  color: rgb(109, 109, 109);
+  color: var(--paragraph);
 }
 
 .card-text a {
@@ -272,7 +286,7 @@ a:hover {
   height: 100px;
   width: 100px;
   display: block;
-  border: 1px solid white;
+  border: 1px solid var(--second-color);
   opacity: 0;
   transition: 0.3s;
 }
@@ -321,7 +335,9 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #00858f;
+  background-color: var(--primary-color);
+  font-size: 18px;
+  font-family: 'Arial';
 }
 
 /* RESPONSIVO */
